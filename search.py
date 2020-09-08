@@ -2,7 +2,7 @@ from cal_time import *
 import time
 
 
-# @cal_time
+@cal_time
 def linear_search(lis, val):
     for ind, v in enumerate(lis):
         if v == val:
@@ -11,7 +11,7 @@ def linear_search(lis, val):
             return None
 
 
-# @cal_time
+@cal_time
 def binary_search(lis, val):
     left = 0
     right = len(lis) - 1
@@ -29,3 +29,4 @@ def binary_search(lis, val):
 
 li = list(range(1000))
 print(binary_search(li, 354))
+print(linear_search(li, 354))
