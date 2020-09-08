@@ -1,8 +1,15 @@
-def quick_sort(li, left, right):
+import time
+from cal_time import *
+from functools import wraps
+import random
+import copy
+
+
+def _quick_sort(li, left, right):
     if left < right: #至少两个元素
         mid = partition(li, left, right)
-        quick_sort(li, left, mid-1)
-        quick_sort(li, mid+1, right)
+        _quick_sort(li, left, mid-1)
+        _quick_sort(li, mid+1, right)
     return li
 
 
@@ -18,5 +25,15 @@ def partition(li, left, right):
     li[left] = tmp
     return left
 
-li = [2,1,4,6,8,3,3,0,5,7,9]
-print(quick_sort(li, 0, len(li)-1))
+
+@cal_time
+def quick_sort(li):
+    _quick_sort(li, 0, len(li)-1)
+    return li
+
+li = list(range(100000))
+random.shuffle(li)
+#print(li)
+
+li1 = copy.deepcopy(li)
+print(quick_sort(li1))
