@@ -1,6 +1,4 @@
-import time
 from cal_time import *
-from functools import wraps
 import random
 import copy
 
@@ -34,7 +32,5 @@ def quick_sort(data):
 
 li = list(range(100000))
 random.shuffle(li)
-# print(li)
-
-li1 = copy.deepcopy(li)
-print(quick_sort(li1))
+quick_sort(li)
+print(li)
